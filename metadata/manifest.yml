@@ -2,12 +2,12 @@
 Name: scaledb
 Cartridge-Short-Name: MARIADB
 Architecture: noarch1
--Display-Name: MariaDB 5.5
+-Display-Name: MariaDB 5.6
 -Description: MariaDB is a multi-user, multi-threaded SQL database server.
-Version: '5.5'
+Version: '5.6'
 Versions:
-- '5.5'
-Cartridge-Version: 0.2.3
+- '5.6'
+Cartridge-Version: 1.2.3
 Cartridge-Vendor: michaelfitz
 License: GPL
 Vendor: MariaDB Foundation
@@ -35,7 +35,7 @@ Cart-Data:
 Suggests:
 - phpmyadmin-4
 Provides:
-- mariadb-5.5
+- mariadb-5.6
 - mariadb
 - mariadb-singleton-master
 Publishes:
