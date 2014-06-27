@@ -10,11 +10,14 @@ set -e
 #local_gear=$3
  
  
-cas_name=`echo "$@" | sed "s/'//g" | grep -m 1 -o 'OPENSHIFT_CAS_NODE_FROM_STORAGE=.*' | cut -d '=' -f 2 | cut -d ':' -f 1`
-cas_port=` echo "$@"  | sed "s/'//g" | grep -m 1 -o 'OPENSHIFT_CAS_NODE_FROM_STORAGE=.*' | cut -d '=' -f 2 | cut -d ':' -f 2`
+CAS_NAME=`echo "$@" | sed "s/'//g" | grep -m 1 -o 'OPENSHIFT_CAS_NODE_FROM_STORAGE=.*' | cut -d '=' -f 2 | cut -d ':' -f 1`
+CAS_PORT=` echo "$@"  | sed "s/'//g" | grep -m 1 -o 'OPENSHIFT_CAS_NODE_FROM_STORAGE=.*' | cut -d '=' -f 2 | cut -d ':' -f 2`
 
 
 # lets update the scaledb.cnf file
+sed -e "s|OPENSHIFT_MARIADB_DB_HOST|${GEAR_IP}|" ${OPENSHIFT_MARIADB_DIR}/bin/scaledb.cnf.tmp > ${OPENSHIFT_MARIADB_DIR}/scaledb.cnf.tmp2
+sed -e "s|OPENSHIFT_CAS_PORT|${OPENSHIFT_MARIADB_CAS_PROXY_PORT}|" ${OPENSHIFT_MARIADB_DIR}/scaledb.cnf.tmp2 > ${OPENSHIFT_MARIADB_DIR}/scaledb.cnf
+
 
  
 echo "$@"  >> $OPENSHIFT_MARIADB_DIR/hook-log
