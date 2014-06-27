@@ -21,7 +21,7 @@ set -e
  
 CAS_NAME=`echo "$@" | sed "s/'//g" | grep -m 1 -o 'OPENSHIFT_CAS_NODE_FROM_STORAGE=.*' | cut -d '=' -f 2 | cut -d ':' -f 1`
 CAS_PORT=`echo "$@"  | sed "s/'//g" | grep -m 1 -o 'OPENSHIFT_CAS_NODE_FROM_STORAGE=.*' | cut -d '=' -f 2 | cut -d ':' -f 2`
-
+get_cas_ip
 
 # lets update the scaledb.cnf file
 sed -e "s|OPENSHIFT_MARIADB_DB_HOST|${CAS_IP}|" ${OPENSHIFT_MARIADB_DIR}/bin/scaledb.cnf.tmp > ${OPENSHIFT_MARIADB_DIR}/scaledb.cnf.tmp2
