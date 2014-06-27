@@ -66,7 +66,7 @@ sed -e "s|OPENSHIFT_MARIADB_DB_HOST|`printf "%-20s" ${GEAR_IP}`|" ${OPENSHIFT_MA
 sed -e "s|OPENSHIFT_MARIADB_SLM_PROXY_PORT|${OPENSHIFT_MARIADB_SLM_PROXY_PORT}|" ${OPENSHIFT_MARIADB_DIR}/slm.registry.tmp2 > ${OPENSHIFT_MARIADB_DIR}/michael44/scaledb/data/CAS1/slm.registry
 cp ${OPENSHIFT_MARIADB_DIR}/michael44/scaledb/data/CAS1/slm.registry ${OPENSHIFT_MARIADB_DIR}/michael44/scaledb/data/CAS1/slm.registry.save    
     
-cp ${OPENSHIFT_MARIADB_DIR}/scaledb.cnf ${OPENSHIFT_MARIADB_DIR}/michael44/mariadb-5.5.34-linux-x86_64/data/
+#cp ${OPENSHIFT_MARIADB_DIR}/scaledb.cnf ${OPENSHIFT_MARIADB_DIR}/michael44/mariadb-5.5.34-linux-x86_64/data/
 #cp ${OPENSHIFT_MARIADB_DIR}/bin/cas.cnf ${OPENSHIFT_MARIADB_DIR}/cas.cnf
 #cp ${OPENSHIFT_MARIADB_DIR}/bin/slm.cnf ${OPENSHIFT_MARIADB_DIR}/slm.cnf    
     
