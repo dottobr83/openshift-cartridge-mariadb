@@ -17,12 +17,12 @@ set -e
 #app_name=$1
 #namespace=$2
 #local_gear=$3
-one_line=`echo $@ | xargs echo` 
+echo "$@"  >> $OPENSHIFT_MARIADB_DIR/hook-log
  
-echo  $one_line  >> $OPENSHIFT_MARIADB_DIR/hook-log3 
+
  
-CAS_NAME=`echo $one_line | sed "s/'//g" | grep -m 1 -o 'OPENSHIFT_CAS_NODE_FROM_STORAGE=.*' | cut -d '=' -f 2 | cut -d ':' -f 1`
-CAS_PORT=`echo $one_line  | sed "s/'//g" | grep -m 1 -o 'OPENSHIFT_CAS_NODE_FROM_STORAGE=.*' | cut -d '=' -f 2 | cut -d ':' -f 2`
+CAS_NAME=`cat hook-log | sed "s/'//g" | grep -m 1 -o 'OPENSHIFT_CAS_NODE_FROM_STORAGE=.*' | cut -d '=' -f 2 | cut -d ':' -f 1`
+CAS_PORT=`cat hook-log | sed "s/'//g" | grep -m 1 -o 'OPENSHIFT_CAS_NODE_FROM_STORAGE=.*' | cut -d '=' -f 2 | cut -d ':' -f 2`
 get_cas_ip
 
 # lets update the scaledb.cnf file
@@ -33,4 +33,4 @@ sed -e "s|OPENSHIFT_CAS_PORT|${CAS_PORT}|" ${OPENSHIFT_MARIADB_DIR}/scaledb.cnf.
 echo $CAS_NAME > t88
 echo $CAS_IP > t89
 echo $CAS_PORT > t90
-echo "$@"  >> $OPENSHIFT_MARIADB_DIR/hook-log
+
