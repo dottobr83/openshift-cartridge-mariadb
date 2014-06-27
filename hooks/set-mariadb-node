@@ -28,7 +28,7 @@ get_cas_ip
 # lets update the scaledb.cnf file
 sed -e "s|OPENSHIFT_MARIADB_DB_HOST|${CAS_IP}|" ${OPENSHIFT_MARIADB_DIR}/bin/scaledb.cnf.tmp > ${OPENSHIFT_MARIADB_DIR}/scaledb.cnf.tmp2
 sed -e "s|OPENSHIFT_CAS_PORT|${CAS_PORT}|" ${OPENSHIFT_MARIADB_DIR}/scaledb.cnf.tmp2 > ${OPENSHIFT_MARIADB_DIR}/scaledb.cnf
-
+cp ${OPENSHIFT_MARIADB_DIR}/scaledb.cnf ${OPENSHIFT_MARIADB_DIR}/michael44/mariadb-5.5.34-linux-x86_64/data/
 
 
 export running=`pgrep mysqld`
