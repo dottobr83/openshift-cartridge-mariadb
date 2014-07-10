@@ -15,7 +15,7 @@ cd michael44
 wget pub.scaledb.com/dump/mariadb-10.0.12-linux-x86_64-small.tar.gz
 gunzip mariadb-10.0.12-linux-x86_64-small.tar.gz
 tar xvf mariadb-10.0.12-linux-x86_64-small.tar
-rm mariadb-10.0.12-linux-x86_64-small.tar.gz
+rm mariadb-10.0.12-linux-x86_64-small.tar
 
 
 
