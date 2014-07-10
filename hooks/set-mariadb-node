@@ -38,7 +38,7 @@ echo $running > t87
 if [ -z "$running"]
 then
 echo "MYSQLD not running" + $running
-    export LD_LIBRARY_PATH="${OPENSHIFT_MARIADB_DIR}/michael44/scaledb-latest-mariadb-5.5.34/lib"
+    export LD_LIBRARY_PATH="${OPENSHIFT_SCALEDB_INSTALL_DIR}/lib"
     ${OPENSHIFT_SCALEDB_MARIA_INSTALL_DIR}/bin/mysqld --defaults-file=${OPENSHIFT_MARIADB_DIR}/config.cnf > t3.txt 2>&1 &
     sleep 10
     ${OPENSHIFT_SCALEDB_MARIA_INSTALL_DIR}/bin/mysql -uroot -e "INSTALL PLUGIN scaledb SONAME 'ha_scaledb.so'"
