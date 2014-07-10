@@ -6,7 +6,7 @@ export STOPTIMEOUT=10
 
 # Run mariadb commands
 function run_sql {
-  echo "$@" | ${OPENSHIFT_MARIADB_DIR}/michael44/mariadb-5.5.34-linux-x86_64/bin/mysql  -uroot --skip-column-names
+  echo "$@" | ${OPENSHIFT_SCALEDB_MARIA_INSTALL_DIR}/bin/mysql  -uroot --skip-column-names
  }
 
 

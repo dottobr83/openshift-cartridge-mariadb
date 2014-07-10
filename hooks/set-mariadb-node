@@ -28,7 +28,7 @@ get_cas_ip
 # lets update the scaledb.cnf file
 sed -e "s|OPENSHIFT_MARIADB_DB_HOST|${CAS_IP}|" ${OPENSHIFT_MARIADB_DIR}/bin/scaledb.cnf.tmp > ${OPENSHIFT_MARIADB_DIR}/scaledb.cnf.tmp2
 sed -e "s|OPENSHIFT_CAS_PORT|${CAS_PORT}|" ${OPENSHIFT_MARIADB_DIR}/scaledb.cnf.tmp2 > ${OPENSHIFT_MARIADB_DIR}/scaledb.cnf
-cp ${OPENSHIFT_MARIADB_DIR}/scaledb.cnf ${OPENSHIFT_MARIADB_DIR}/michael44/mariadb-5.5.34-linux-x86_64/data/
+cp ${OPENSHIFT_MARIADB_DIR}/scaledb.cnf ${OPENSHIFT_SCALEDB_MARIA_INSTALL_DIR}/data/
 
 
 export running=`pgrep mysqld`
@@ -39,9 +39,9 @@ if [ -z "$running"]
 then
 echo "MYSQLD not running" + $running
     export LD_LIBRARY_PATH="${OPENSHIFT_MARIADB_DIR}/michael44/scaledb-latest-mariadb-5.5.34/lib"
-    ${OPENSHIFT_MARIADB_DIR}/michael44/mariadb-5.5.34-linux-x86_64/bin/mysqld --defaults-file=${OPENSHIFT_MARIADB_DIR}/config.cnf > t3.txt 2>&1 &
+    ${OPENSHIFT_SCALEDB_MARIA_INSTALL_DIR}/bin/mysqld --defaults-file=${OPENSHIFT_MARIADB_DIR}/config.cnf > t3.txt 2>&1 &
     sleep 10
-    ${OPENSHIFT_MARIADB_DIR}/michael44/mariadb-5.5.34-linux-x86_64/bin/mysql -uroot -e "INSTALL PLUGIN scaledb SONAME 'ha_scaledb.so'"
+    ${OPENSHIFT_SCALEDB_MARIA_INSTALL_DIR}/bin/mysql -uroot -e "INSTALL PLUGIN scaledb SONAME 'ha_scaledb.so'"
 
 
 
@@ -55,7 +55,7 @@ username=$OPENSHIFT_MARIADB_DB_USERNAME
 password=$OPENSHIFT_MARIADB_DB_PASSWORD
 
 # TODO: Should be we running mysql_secure_installation
-echo "GRANT ALL ON *.* to root@'%'; flush privileges;" | ${OPENSHIFT_MARIADB_DIR}/michael44/mariadb-5.5.34-linux-x86_64/bin/mysql -uroot > /dev/null || error "Failed to setup initial root user" 187
+echo "GRANT ALL ON *.* to root@'%'; flush privileges;" | ${OPENSHIFT_SCALEDB_MARIA_INSTALL_DIR}/bin/mysql -uroot > /dev/null || error "Failed to setup initial root user" 187
 
 
 
