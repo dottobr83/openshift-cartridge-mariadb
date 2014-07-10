@@ -1,5 +1,5 @@
 ---
-Name: scaledb
+Name: scaledbmariadb
 Cartridge-Short-Name: MARIADB
 Architecture: noarch1
 -Display-Name: MariaDB 5.6
