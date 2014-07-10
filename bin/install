@@ -53,17 +53,15 @@ ${OPENSHIFT_MARIADB_DIR}/michael44/mariadb-5.5.34-linux-x86_64/scripts/mysql_ins
 
 
 client_result ""
-client_result "MySQL 5.1 database added.  Please make note of these credentials:"
+client_result "SCALEDB MariaDB database added.  Please make note of these credentials:"
 client_result ""
-client_result "       Root User: $username"
-client_result "   Root Password: $password"
-client_result "   Database Name: $OPENSHIFT_APP_NAME"
+client_result "       Root User: root"
+client_result "   Root Password:  "
 client_result ""
 
 client_result "Connection URL: mysql://$OPENSHIFT_MARIADB_DB_HOST:$OPENSHIFT_MARIADB_DB_PORT/"
-client_result ""
-client_result "You can manage your new MySQL database by also embedding phpmyadmin."
-client_result "The phpmyadmin username and password will be the same as the MySQL credentials above."
+client_result "Host Name: $OPENSHIFT_GEAR_DNS "
+
 
 cart_props 'connection_url=mysql://$OPENSHIFT_MARIADB_DB_HOST:$OPENSHIFT_MARIADB_DB_PORT/'
 cart_props "username=$username"
