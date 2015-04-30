@@ -8,10 +8,10 @@ Version: '10.0.17'
 Versions:
 - '10.0.17'
 Cartridge-Version: 1.2.3
-Cartridge-Vendor: ranib
+Cartridge-Vendor: dottobr83
 License: GPL
 Vendor: MariaDB Foundation
-Source-Url: https://github.com/ranib/openshift-cartridge-mariadb.git
+Source-Url: https://github.com/dottobr83/openshift-cartridge-mariadb.git
 Categories:
 - service
 - database
