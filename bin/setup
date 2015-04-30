@@ -12,10 +12,10 @@ cd michael44
 #tar xvf mariadb-5.5.34-linux-x86_64-small.tar
 #rm mariadb-5.5.34-linux-x86_64-small.tar
 
-wget pub.scaledb.com/dump/mariadb-10.0.12-linux-x86_64-small.tar.gz
-gunzip mariadb-10.0.12-linux-x86_64-small.tar.gz
-tar xvf mariadb-10.0.12-linux-x86_64-small.tar
-rm mariadb-10.0.12-linux-x86_64-small.tar
+wget pub.scaledb.com/dump/mariadb-10.0.17-linux-x86_64-small.tar.gz
+gunzip mariadb-10.0.17-linux-x86_64-small.tar.gz
+tar xvf mariadb-10.0.17-linux-x86_64-small.tar
+rm mariadb-10.0.17-linux-x86_64-small.tar
 
 
 
