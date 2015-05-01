@@ -5,8 +5,8 @@ source $OPENSHIFT_CARTRIDGE_SDK_BASH
 # Generate username, password, and db name and create env variables
 echo 'Generating username and password'
 
-username="root"
-password=""
+username=$(generate_username)
+password=$(generate_password)
 
 echo "$username" > $OPENSHIFT_MARIADB_DIR/env/OPENSHIFT_MARIADB_DB_USERNAME
 echo "$password" > $OPENSHIFT_MARIADB_DIR/env/OPENSHIFT_MARIADB_DB_PASSWORD
@@ -50,16 +50,15 @@ cp ${OPENSHIFT_MARIADB_DIR}/bin/config.cnf ${OPENSHIFT_MARIADB_DIR}/config.cnf
 
 ${OPENSHIFT_SCALEDB_MARIA_INSTALL_DIR}/scripts/mysql_install_db   --basedir=${OPENSHIFT_SCALEDB_MARIA_INSTALL_DIR}   --defaults-file=${OPENSHIFT_MARIADB_DIR}/bin/config.cnf  > t.txt
 
-
-
 client_result ""
-client_result "SCALEDB MariaDB database added.  Please make note of these credentials:"
+client_result "MariaDB ${OPENSHIFT_MARIADB_VERSION} database added.  Please make note of these credentials:"
 client_result ""
-client_result "       Root User: root"
-client_result "   Root Password:  "
+client_result "       Root User: $username"
+client_result "   Root Password: $password"
+client_result "   Database Name: $OPENSHIFT_APP_NAME"
 client_result ""
 
-client_result "Connection URL: mysql://$OPENSHIFT_MARIADB_DB_HOST:$OPENSHIFT_MARIADB_DB_PORT/"
+client_result 'Connection URL: mysql://$OPENSHIFT_MARIADB_DB_HOST:$OPENSHIFT_MARIADB_DB_PORT/'
 client_result "Host Name: $OPENSHIFT_GEAR_DNS "
 
 
